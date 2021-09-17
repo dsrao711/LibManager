@@ -1,18 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "layout.html" %} {% block content %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<div class="row m-1 p-1">
+    <div class="col-xl-12">
+        <div class="card-body" style="background-color: #f4f5f7;">
+            <div class="text-left text-muted mb-3">
+                <h4>Apply Filter</h4>
+            </div>
 
-<body>
+            <form role="form">
+                <div class="row">
+                    <div class="col-xl-3 form-group">
+                        <div class="input-group input-group-merge input-group-alternative mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="ni ni-books"></i></span>
+                            </div>
+                            <input class="form-control" placeholder="Title" type="text">
+                        </div>
+                    </div>
 
-    <p>Get books works fine</p>
+                    <div class="col-xl-3 form-group">
+                        <div class="input-group input-group-merge input-group-alternative mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                            </div>
+                            <input class="form-control" placeholder="Author" type="email">
+                        </div>
+                    </div>
 
-</body>
+                    <div class="col-xl-3 form-group">
+                        <div class="input-group input-group-merge input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="ni ni-bullet-list-67"></i></span>
+                            </div>
+                            <input class="form-control" placeholder="ISBN" type="password">
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 align-left">
+                        <button type="button" class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div class="col-xl-7 col-md-6 ">
+
+    </div>
+</div>
 
 
-</html>
+{% endblock content %}

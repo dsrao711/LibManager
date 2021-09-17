@@ -3,7 +3,7 @@ from app import app , db
 from flask import render_template
 
 @app.route("/")
-def hello_world():
+def dashboard():
     return render_template('index.html')
 
 
