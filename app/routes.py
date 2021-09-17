@@ -4,7 +4,7 @@ from flask import render_template
 
 @app.route("/")
 def hello_world():
-    return "<p>Hello, World!</p>"
+    return render_template('index.html')
 
 
 @app.route("/getbooks")
