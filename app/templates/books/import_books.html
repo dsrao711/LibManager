@@ -7,15 +7,22 @@
                 <h4>Apply Filter</h4>
             </div>
 
-            <form role="form" method="POST">
-
+            <form role="form" method="POST" action="">
+                {{ form.hidden_tag() }}
                 <div class="row">
                     <div class="col-xl-3 form-group">
                         <div class="input-group input-group-merge input-group-alternative mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-books"></i></span>
                             </div>
-                            <input class="form-control" placeholder="Title" type="text">
+                            <!-- <input class="form-control" placeholder="Title" type="text"> -->
+                            {% if form.title.errors %} {{ form.title(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.title.errors %}
+                                <span>{{ error }}</span> {% endfor %}
+                            </div>
+                            {% else %} {{ form.title(class="form-control" , placeholder = "Title" , type = "text") }} {% endif %}
+
                         </div>
                     </div>
 
@@ -25,7 +32,8 @@
                                 <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                             </div>
 
-                            <input class="form-control" placeholder="Author" type="text">
+                            <!-- <input class="form-control" placeholder="Author" type="text"> -->
+                            {{ form.author(class="form-control" , placeholder = "Author" , type = "text") }}
                         </div>
                     </div>
 
@@ -34,12 +42,14 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-bullet-list-67"></i></span>
                             </div>
-                            <input class="form-control" placeholder="ISBN" type="text">
+                            <!-- <input class="form-control" placeholder="ISBN" type="text"> -->
+                            {{form.isbn(class = "form-control" , placeholder = "ISBN" , type = "text")}}
                         </div>
                     </div>
 
                     <div class="col-xl-3 align-left">
-                        <button type="button" class="btn btn-primary">Search</button>
+                        <!-- <button type="button" class="btn btn-primary">Search</button> -->
+                        {{form.search(class = "btn btn-primary" , type = "submit" )}}
                     </div>
                 </div>
             </form>
