@@ -1,18 +1,16 @@
 import requests , urllib , json
 from app import app , db
 from flask import render_template
+from app.forms import AddBooks
 
 @app.route("/")
 def dashboard():
     return render_template('index.html')
 
 
-@app.route("/getbooks")
-def get_books():
+@app.route("/importbooks" , methods = ["GET" , "POST"])
+def add_books():
     # Fetch books from frape api
-    url = "https://frappe.io/api/method/frappe-library"
-    response = urllib.request.urlopen(url)
-    data=response.read()
-    dict_ = json.loads(data)
-    print(dict_)
-    return render_template('get_books.html' , books = dict_)
+    url = "https://frappe.io/api/method/frappe-library?"
+
+    return render_template('books/import_books.html')
