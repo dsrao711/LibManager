@@ -12,11 +12,11 @@ class SearchBook(FlaskForm):
     def getdata(self):
         values = {}
         if(self.title != None):
-            values['title'] = self.title
+            values['title'] = self.title.data
         if(self.author != None):
-            values['author'] = self.author
-        if(self.isbn != None):
-            values['isbn'] = self.isbn
+            values['author'] = self.author.data
+        if(self.isbn != ''):
+            values['isbn'] = self.isbn.data
         return values
             
             
