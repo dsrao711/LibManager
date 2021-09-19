@@ -34,16 +34,22 @@ def add_books():
         for value in jsonData['message']:
             books.append([value['bookID'],value['title'] , value['authors'] , value['isbn']])
             
-        if(form_import.validate_on_submit()):
+    if(form_import.validate_on_submit()):
             book = Books(
                 book_id = form_import.book_id.data  ,
                 title = form_import.name.data ,
-                author = ,
-                isbn = , 
-                quantity = 
-                
+                author = form_import.author.data ,
+                isbn =form_import.isbn.data , 
+                quantity = form_import.quantity.data 
             )
               
+            print(form_import.quantity.data) 
+            db.session.add(book)
+            db.session.commit()
+            
+            redirect(url_for('add_books'))
+            
+            
     return render_template('books/import_books.html' , form= form  , books = books , form_import = form_import)
 
 

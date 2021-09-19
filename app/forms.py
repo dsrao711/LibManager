@@ -22,11 +22,11 @@ class SearchBook(FlaskForm):
     
 class ImportBook(FlaskForm):
     
-    book_id = StringField('book_id' , validators=[DataRequired()] )
-    name = StringField('name' , validators=[DataRequired()] )
-    author = StringField('author' , validators=[DataRequired()])
-    isbn = StringField('isbn', validators=[DataRequired()])
-    quantity = IntegerField('quantity' , validators=[DataRequired() , NumberRange(min=1)] )
+    book_id = StringField('Book ID' , validators=[DataRequired()] )
+    name = StringField('Name of the Book' , validators=[DataRequired()] )
+    author = StringField('Author' , validators=[DataRequired()])
+    isbn = StringField('ISBN', validators=[DataRequired()])
+    quantity = IntegerField('Quantity' , validators=[DataRequired() , NumberRange(min=1)] )
     import_books = SubmitField('Import')            
 
             
