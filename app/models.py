@@ -1,7 +1,6 @@
 from app import db
 
 # Members
-
 class Member(db.Model):
    id = db.Column(db.Integer, primary_key =True)
    name = db.Column(db.String(100), nullable = False)
@@ -10,7 +9,7 @@ class Member(db.Model):
    
 #Books
 class Books(db.Model):
-   id = db.Column(db.Integer , primary_key = True)
+   book_id = db.Column(db.Integer , primary_key = True)
    title = db.Column(db.String , primary_key = True)
    author = db.Column(db.String , primary_key = True)
    isbn = db.Column(db.String , primary_key = True)
