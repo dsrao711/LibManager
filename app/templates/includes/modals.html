@@ -19,18 +19,10 @@
                 <form role="form" method="POST" action="/addbook">
                     {{ form_import.hidden_tag() }}
                     <div class="row m-0">
-                        <div class="col-xl-6 form-group">
-                            {{ form_import.book_id(class="form-control" , placeholder = "Book ID" , type = "hidden" , value = book[0] ) }}
-                        </div>
-                        <div class="col-xl-6 form-group">
-                            {{ form_import.name(class="form-control" , placeholder = "Name" , type = "hidden" , value = book[1]) }}
-                        </div>
-                        <div class="col-xl-12 form-group">
-                            {{ form_import.author(class="form-control" , placeholder = "Author" , type = "hidden" , value = book[2]) }}
-                        </div>
-                        <div class="col-xl-6 form-group">
-                            {{ form_import.isbn(class="form-control" , placeholder = "ISBN" , type = "hidden" , value = book[3] ) }}
-                        </div>
+
+                        {{ form_import.book_id(class="form-control" , placeholder = "Book ID" , type = "hidden" , value = book[0] ) }} {{ form_import.name(class="form-control" , placeholder = "Name" , type = "hidden" , value = book[1]) }} {{ form_import.author(class="form-control"
+                        , placeholder = "Author" , type = "hidden" , value = book[2]) }} {{ form_import.isbn(class="form-control" , placeholder = "ISBN" , type = "hidden" , value = book[3] ) }}
+
                         <div class="col-xl-6 form-group">
                             {% if form_import.quantity.errors %} {{ form_import.quantity(class="form-control is-invalid") }}
                             <div class="invalid-feedback">

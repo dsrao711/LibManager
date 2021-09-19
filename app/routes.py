@@ -17,13 +17,10 @@ def dashboard():
 
 @app.route("/importbooks" , methods = ["GET" , "POST"])
 def add_books():
-    
-    
     form = SearchBook() 
     form_import = ImportBook() 
     jsonData = []
     books = []
-    
     if(form.validate_on_submit()):
         # Dict of values from search
         values = form.getdata()
@@ -34,9 +31,7 @@ def add_books():
         # Storing the required info in a list
         for value in jsonData['message']:
             books.append([value['bookID'],value['title'] , value['authors'] , value['isbn']])
-            
-    
-            
+ 
     return render_template('books/import_books.html' , form= form  , books = books , form_import = form_import)
 
 
@@ -57,11 +52,13 @@ def books():
         print(form_import.quantity.data) 
         db.session.add(book)
         db.session.commit()
-        
         return redirect(url_for('add_books'))
         
     return redirect(url_for('add_books'))
             
 
-
+@app.route("/viewbooks" , methods = ['GET'])
+def viewbooks():
+    books = Books.query.all()
+    return render_template('books/books_available.html' , books = books)
 
