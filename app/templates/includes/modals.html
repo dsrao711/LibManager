@@ -10,21 +10,54 @@
                 </button>
             </div>
             <div class="modal-body">
+                <!-- Form -->
+                <form role="form" method="POST" action=""></form>
+                {{ form_import.hidden_tag() }}
 
-                <h5 id="one">Book ID : {{ book[0] }}</h5>
+                <!-- <h5 id="one">Book ID : {{ book[0] }}</h5>
                 <h5 id="two">Title : {{ book[1] }}</h5>
                 <h5 id="three">Author : {{ book [2]}}</h5>
-                <h5 id="four">ISBN : {{ book[3] }}</h5>
+                <h5 id="four">ISBN : {{ book[3] }}</h5> -->
 
-                <div class="row">
-                    <div class="col-xl-3">
-                        <input type="text" class="form-control form-control-sm" placeholder="Quantity">
+                <div class="row mt-2">
+
+                    <div class="col-xl-6 form-group">
+                        <div class="input-group input-group-merge input-group-alternative">
+                            {{ form_import.book_id(class="form-control" , placeholder = "Book ID" , type = "text" , disabled = True , value = book[0] ) }}
+                        </div>
                     </div>
+                    <div class="col-xl-6 form-group">
+                        <div class="input-group input-group-merge input-group-alternative">
+                            {{ form_import.name(class="form-control" , placeholder = "Name" , type = "text" , disabled= True , value = book[1]) }}
+                        </div>
+                    </div>
+                    <div class="col-xl-6 form-group">
+                        <div class="input-group input-group-merge input-group-alternative">
+                            {{ form_import.author(class="form-control" , placeholder = "Author" , type = "text" , disabled = True , value = book[2]) }}
+                        </div>
+                    </div>
+                    <div class="col-xl-6 form-group">
+                        <div class="input-group input-group-merge input-group-alternative">
+                            {{ form_import.isbn(class="form-control" , placeholder = "ISBN" , type = "text", disabled= True , value = book[3] ) }}
+                        </div>
+                    </div>
+                    <div class="col-xl-6 form-group">
+                        <div class="input-group input-group-merge input-group-alternative">
+                            {% if form.title.errors %} {{ form_import.quantity(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.title.errors %}
+                                <span>{{ error }}</span> {% endfor %}
+                            </div>
+                            {% else %} {{ form_import.quantity(class="form-control " , placeholder = "Quantity" , type = "text" ) }} {% endif %}
+                        </div>
+                    </div>
+
                 </div>
+                </form>
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary btn-sm">Import</button>
+                {{ form_import.import_books(class = "btn btn-primary btn-sm" , type = "submit" ) }}
             </div>
         </div>
     </div>

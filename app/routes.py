@@ -1,10 +1,15 @@
 from typing import _SpecialForm
-import requests , urllib , json
+import requests , urllib , json ,os , urllib.request
 from wtforms import validators
-from app import app , db
 from flask import render_template , redirect , url_for , request
-from app.forms import SearchBook
-import urllib.request, json ,os , requests
+
+#app
+from app import app , db
+#Forms
+from app.forms import SearchBook , ImportBook
+# Models
+from app.models import Books , Member
+
 
 @app.route("/")
 def dashboard():
@@ -12,6 +17,8 @@ def dashboard():
 
 @app.route("/importbooks" , methods = ["GET" , "POST"])
 def add_books():
+    
+    form_import = ImportBook()
     form = SearchBook()  
     jsonData = []
     books = []
@@ -24,10 +31,24 @@ def add_books():
         # Printing response from API
         jsonData = r.json()
         # Storing the required info in a list
-
         for value in jsonData['message']:
             books.append([value['bookID'],value['title'] , value['authors'] , value['isbn']])
-        
-    return render_template('books/import_books.html' , form= form  , books = books)
+            
+        if(form_import.validate_on_submit()):
+            book = Books(
+                book_id = form_import.book_id.data  ,
+                title = form_import.name.data ,
+                author = ,
+                isbn = , 
+                quantity = 
+                
+            )
+              
+    return render_template('books/import_books.html' , form= form  , books = books , form_import = form_import)
+
+
+
+
+
 
 
