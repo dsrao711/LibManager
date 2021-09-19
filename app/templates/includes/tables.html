@@ -1,0 +1,39 @@
+<div class="card-body" style="background-color: #f4f5f7;">
+    <div class="table-responsive">
+        <div>
+            <table class="table align-items-center" id="table_to_highlight">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col" class="sort" data-sort="id">Book ID</th>
+                        <th scope="col" class="sort" data-sort="title">Title</th>
+                        <th scope="col" class="sort" data-sort="author">Author</th>
+                        <th scope="col" class="sort" data-sort="isbn">ISBN</th>
+                        <th scope="col" class="sort" data-sort="import">Import</th>
+                    </tr>
+                </thead>
+                <tbody class="list">
+                    {% for book in books %}
+                    <tr>
+                        <td class="id">
+                            {{book[0]}}
+                        </td>
+                        <td class="title">
+                            {{book[1]}}
+                        </td>
+                        <td class="author">
+                            {{book[2]}}
+                        </td>
+                        <td class="isbn">
+                            {{book[3]}}
+                        </td>
+                        <td class="title">
+                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#examplemodal{{ book[0] }}" id="import_books">Import</button>
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

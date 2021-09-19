@@ -15,6 +15,7 @@ def add_books():
     form = SearchBook()  
     jsonData = []
     books = []
+    
     if(form.validate_on_submit()):
         # Dict of values from search
         values = form.getdata()
