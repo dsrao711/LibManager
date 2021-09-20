@@ -8,7 +8,7 @@ from flask import Blueprint, redirect, render_template,  url_for
 bp =  Blueprint('books' , __name__)
 
 @bp.route("/books_search" , methods = ["GET" , "POST"])
-def add_books():
+def search_books():
     form_filter = SearchBook() 
     form_import = ImportBook() 
     jsonData = []
@@ -24,27 +24,26 @@ def add_books():
 
 
 @bp.route("/books_import" , methods = ['POST'])
-def books():
+def import_books():
     print("Adding Book")
     form_import = ImportBook()
     
     if(form_import.validate_on_submit()):
         print("Inside Submit")
-        book = Books(
+        if(db.session.query(Books).filter_by(book_id = form_import.book_id.data).count() < 1):
+            book = Books(
             book_id = form_import.book_id.data  ,
             title = form_import.name.data ,
             author = form_import.author.data ,
             isbn = form_import.isbn.data , 
-            quantity = form_import.quantity.data 
-        )
-        print(form_import.quantity.data) 
-        db.session.add(book)
-        db.session.commit()
-        return redirect(url_for('books.add_books'))
+            quantity = form_import.quantity.data)
+            db.session.add(book)
+            db.session.commit()
+        return redirect(url_for('books.search_books'))
         
-    return redirect(url_for('books.add_books'))
+    return redirect(url_for('books.search_books'))
             
 
-
-
-
+@bp.route("/books_available" , methods = ['GET'])
+def get_books():
+    return render_template('books/books_available.html')
