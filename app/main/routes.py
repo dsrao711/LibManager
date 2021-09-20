@@ -1,8 +1,8 @@
 
 from flask import (render_template ,Blueprint)
 
-main = Blueprint('main', __name__)
+bp = Blueprint('main', __name__)
 
-@main.route("/")
+@bp.route("/")
 def dashboard():
     return render_template('dashboard.html')

@@ -13,7 +13,9 @@ db.create_all()
 
 
 from app.books.routes import bp as books_blueprint
+from app.main.routes import bp as main_blueprint
 
 app.register_blueprint(books_blueprint)
+app.register_blueprint(main_blueprint)
 
 
