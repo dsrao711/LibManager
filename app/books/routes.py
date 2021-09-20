@@ -46,4 +46,5 @@ def import_books():
 
 @bp.route("/books_available" , methods = ['GET'])
 def get_books():
-    return render_template('books/books_available.html')
+    books = Books.query.all()
+    return render_template('books/books_available.html' , books = books )

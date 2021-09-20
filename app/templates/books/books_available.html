@@ -1,3 +1,45 @@
 {% extends './layout.html' %} {% block content %}
-<h1>Books available</h1>
+
+<div class="card-body" style="background-color: #f4f5f7;">
+    <div class="table-responsive">
+        <div>
+            <table class="table align-items-center" id="table_to_highlight">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col" class="sort" data-sort="id">Book ID</th>
+                        <th scope="col" class="sort" data-sort="title">Title</th>
+                        <th scope="col" class="sort" data-sort="author">Author</th>
+                        <th scope="col" class="sort" data-sort="isbn">ISBN</th>
+                        <th scope="col" class="sort" data-sort="quantity">Quantity</th>
+
+                    </tr>
+                </thead>
+                <tbody class="list">
+                    {% for book in books %}
+                    <tr>
+                        <td class="id">
+                            {{book.book_id}}
+                        </td>
+                        <td class="title">
+                            {{book.title}}
+                        </td>
+                        <td class="author">
+                            {{book.author}}
+                        </td>
+                        <td class="isbn">
+                            {{book.isbn}}
+                        </td>
+                        <td class="quantity">
+                            {{book.quantity}}
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
 {% endblock content %}
