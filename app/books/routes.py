@@ -1,4 +1,5 @@
 import requests
+from sqlalchemy.orm import session
 
 from app import  db
 from app.books.forms import ImportBook, SearchBook
@@ -31,6 +32,7 @@ def import_books():
     if(form_import.validate_on_submit()):
         print("Inside Submit")
         if(db.session.query(Books).filter_by(book_id = form_import.book_id.data).count() < 1):
+            
             book = Books(
             book_id = form_import.book_id.data  ,
             title = form_import.name.data ,
@@ -39,6 +41,8 @@ def import_books():
             quantity = form_import.quantity.data)
             db.session.add(book)
             db.session.commit()
+        
+            
         return redirect(url_for('books.search_books'))
         
     return redirect(url_for('books.search_books'))
