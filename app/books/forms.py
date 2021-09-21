@@ -20,6 +20,7 @@ class SearchBook(FlaskForm):
             values['isbn'] = self.isbn.data
         return values
     
+
 class ImportBook(FlaskForm):
     
     book_id = StringField('Book ID' , validators=[DataRequired()] )
