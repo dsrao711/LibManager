@@ -11,7 +11,6 @@ app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///library.db'
 db = SQLAlchemy(app)
 db.create_all()
 
-
 from app.books.routes import bp as books_blueprint
 from app.main.routes import bp as main_blueprint
 from app.members.routes  import bp as members_blueprint
