@@ -1,4 +1,5 @@
-from app import db 
+from app import db
+
 
 class Members(db.Model):
     member_id = db.Column(db.Integer , primary_key = True , unique = True)

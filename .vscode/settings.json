@@ -1,0 +1,8 @@
+{
+    "python.linting.enabled": true,
+    "files.associations": {
+        "*.html": "jinja-html"
+      }
+    
+}
+

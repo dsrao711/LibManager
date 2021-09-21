@@ -20,16 +20,20 @@
                     {{ form_import.hidden_tag() }}
                     <div class="row m-0">
 
-                        {{ form_import.book_id(class="form-control" , placeholder = "Book ID" , type = "hidden" , value = book[0] ) }} {{ form_import.name(class="form-control" , placeholder = "Name" , type = "hidden" , value = book[1]) }} {{ form_import.author(class="form-control"
-                        , placeholder = "Author" , type = "hidden" , value = book[2]) }} {{ form_import.isbn(class="form-control" , placeholder = "ISBN" , type = "hidden" , value = book[3] ) }}
+                        {{ form_import.book_id(class="form-control" , placeholder = "Book ID" , type = "hidden" , value = book[0] ) }} 
+                        {{ form_import.name(class="form-control" , placeholder = "Name" , type = "hidden" , value = book[1]) }} 
+                        {{ form_import.author(class="form-control", placeholder = "Author" , type = "hidden" , value = book[2]) }} 
+                        {{ form_import.isbn(class="form-control" , placeholder = "ISBN" , type = "hidden" , value = book[3] ) }}
 
                         <div class="col-xl-6 form-group">
-                            {% if form_import.quantity.errors %} {{ form_import.quantity(class="form-control is-invalid") }}
+                            {% if form_import.quantity.errors %}    
+                                {{ form_import.quantity(class="form-control is-invalid") }}
                             <div class="invalid-feedback">
                                 {% for error in form_import.quantity.errors %}
-                                <span>{{ error }}</span> {% endfor %}
+                                    <span>{{ error }}</span> {% endfor %}
                             </div>
-                            {% else %} {{ form_import.quantity(class="form-control" , placeholder = "Quantity" , type = "text" ) }} {% endif %}
+                            {% else %} 
+                                {{ form_import.quantity(class="form-control" , placeholder = "Quantity" , type = "text" ) }} {% endif %}
                         </div>
                         <div class="col-xl-3 align-left">
                             {{ form_import.import_books(class = "btn btn-secondary" , type = "submit") }}
