@@ -19,5 +19,9 @@ def register():
     
     return render_template('members/add_member.html', title='Add Member', form=form)
 
+@bp.route("/members" , methods = ['GET' , 'POST'])
+def get_members():
+    users = members.query.all()
+    return render_template('members/members.html' , users = users)
 
 
