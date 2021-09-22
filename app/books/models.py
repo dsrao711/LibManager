@@ -6,3 +6,4 @@ class Books(db.Model):
    isbn = db.Column(db.String)
    quantity = db.Column(db.String)
    
+db.create_all()

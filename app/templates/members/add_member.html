@@ -10,37 +10,38 @@
             </div>
         </div>
         <div class="card-body">
-            <form method="POST" action="">
-                 {{ form_add_member.hidden_tag() }}
+
+            <form role="form" method="POST">
+                 {{ form.hidden_tag() }}
                 <h6 class="heading-small text-muted mb-2">Member information</h6>
                 <div class="pl-lg-2">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                {{ form_add_member.member_id.label(class = "form-control-label")}}
-                                {% if form_add_member.member_id.errors %}    
-                                {{ form_add_member.member_id(class="form-control is-invalid") }}
+                                {{ form.member_id.label(class = "form-control-label")}}
+                                {% if form.member_id.errors %}    
+                                {{ form.member_id(class="form-control is-invalid") }}
                                 <div class="invalid-feedback">
-                                    {% for error in form_add_member.member_id.errors %}
+                                    {% for error in form.member_id.errors %}
                                         <span>{{ error }}</span> 
                                     {% endfor %}
                                 </div>
                                 {% else %} 
-                                    {{ form_add_member.member_id(class="form-control" , placeholder = "Member ID" , type = "text" ) }} {% endif %}
+                                    {{ form.member_id(class="form-control" , placeholder = "Member ID" , type = "text" ) }} {% endif %}
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                {{ form_add_member.name.label(class = "form-control-label")}}
-                                {% if form_add_member.name.errors %}    
-                                {{ form_add_member.name(class="form-control is-invalid") }}
+                                {{ form.name.label(class = "form-control-label")}}
+                                {% if form.name.errors %}    
+                                {{ form.name(class="form-control is-invalid") }}
                                 <div class="invalid-feedback">
-                                    {% for error in form_add_member.name.errors %}
+                                    {% for error in form.name.errors %}
                                         <span>{{ error }}</span> 
                                     {% endfor %}
                                 </div>
                                 {% else %} 
-                                    {{ form_add_member.name(class="form-control" , placeholder = "Name" , type = "text" ) }} {% endif %}
+                                    {{ form.name(class="form-control" , placeholder = "Name" , type = "text" ) }} {% endif %}
                             </div>
                         </div>
                     </div>
@@ -52,36 +53,36 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                {{ form_add_member.email.label(class = "form-control-label")}}
-                                {% if form_add_member.email.errors %}    
-                                {{ form_add_member.email(class="form-control is-invalid") }}
+                                {{ form.email.label(class = "form-control-label")}}
+                                {% if form.email.errors %}    
+                                {{ form.email(class="form-control is-invalid") }}
                                 <div class="invalid-feedback">
-                                    {% for error in form_add_member.email.errors %}
+                                    {% for error in form.email.errors %}
                                         <span>{{ error }}</span> 
                                     {% endfor %}
                                 </div>
                                 {% else %} 
-                                    {{ form_add_member.email(class="form-control" , placeholder = "Email" , type = "text" ) }} {% endif %}
+                                    {{ form.email(class="form-control" , placeholder = "Email" , type = "text" ) }} {% endif %}
                             </div> 
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                {{ form_add_member.contact.label(class = "form-control-label")}}
-                                {% if form_add_member.contact.errors %}    
-                                {{ form_add_member.contact(class="form-control is-invalid") }}
+                                {{ form.contact.label(class = "form-control-label")}}
+                                {% if form.contact.errors %}    
+                                {{ form.contact(class="form-control is-invalid") }}
                                 <div class="invalid-feedback">
-                                    {% for error in form_add_member.contact.errors %}
+                                    {% for error in form.contact.errors %}
                                         <span>{{ error }}</span> 
                                     {% endfor %}
                                 </div>
                                 {% else %} 
-                                    {{ form_add_member.contact(class="form-control" , placeholder = "Contact Number" , type = "text" ) }} {% endif %}
+                                    {{ form.contact(class="form-control" , placeholder = "Contact Number" , type = "text" ) }} {% endif %}
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="text-right mt-2">
-                    {{ form_add_member.add(class = "btn btn-secondary" , type = "submit") }}
+                    {{ form.add(class = "btn btn-secondary" , type = "submit") }}
                 </div>
 
             </form>
