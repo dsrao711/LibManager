@@ -2,7 +2,7 @@ from wtforms import form
 from app import db
 from flask import Blueprint, redirect, render_template, url_for , flash
 from app.members.models import members
-from app.members.forms import AddMember
+from app.members.forms import AddMember, SearchMember
 
 bp = Blueprint('members' , __name__)
 
@@ -22,6 +22,7 @@ def register():
 @bp.route("/members" , methods = ['GET' , 'POST'])
 def get_members():
     users = members.query.all()
-    return render_template('members/members.html' , users = users)
+    search_form = SearchMember()
+    return render_template('members/members.html' , users = users , search_form = search_form)
 
 

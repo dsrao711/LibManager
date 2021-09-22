@@ -10,7 +10,6 @@ class AddMember(FlaskForm):
     contact = StringField('Contact' , validators=[DataRequired() , Length(min = 10, max = 10)])
     add = SubmitField('Add member')
     
-
 class SearchMember(FlaskForm):
     name = StringField('Name' , validators=[DataRequired()] )
     search = SubmitField('Search')
