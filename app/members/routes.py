@@ -29,7 +29,6 @@ def get_members():
     if search_form.validate_on_submit():
         users = users.filter(members.name.like('%' + search_form.name.data + '%')) 
     users = users.order_by(members.name).all()
-
     
     return render_template('members/members.html' , users = users , search_form = search_form , edit_form = edit_form)
 
