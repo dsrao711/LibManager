@@ -8,6 +8,9 @@
                         <th scope="col" class="sort" data-sort="title">Name</th>
                         <th scope="col" class="sort" data-sort="author">Email - ID</th>
                         <th scope="col" class="sort" data-sort="isbn">Contact Number</th>
+                        <th scope="col" class="sort" data-sort="debt">Debt</th>
+                        <th scope="col" class="sort" data-sort="edit">Edit Details</th>
+                        <th scope="col" class="sort" data-sort="delete">Delete Member</th>
                     </tr>
                 </thead>
                 <tbody class="list">
@@ -25,6 +28,16 @@
                         <td class="isbn">
                             {{user.contact}}
                         </td>
+                        <td class="isbn">
+                            {{user.debt}}
+                        </td>
+                        <td class="edit">
+                            <button type="button" class="btn  btn-sm" id="import_books" data-toggle="modal" data-target="#examplemodal{{ user[0] }}" ><i class="fa fa-edit" style = "color : #172b4d"></i></button>
+                        </td>
+                        <td class="delete">
+                            <button type="button" class="btn btn-sm" id="import_books"><i class="fa fa-trash" style = "color : #f5365c"></i></button>
+                        </td>
+
                     </tr>
 
                     {% endfor %}
