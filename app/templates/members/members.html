@@ -1,47 +1,16 @@
 {% extends './layout.html' %} {% block content %}
 
-<div class="card-body m-4 p-4" style="background-color: #f4f5f7;">
-    <div class="table-responsive">
-        <div>
-            <table class="table align-items-center" id="table_to_highlight">
-                <thead class="thead-light">
-                    <tr>
-                        <th scope="col" class="sort" data-sort="id">Member ID</th>
-                        <th scope="col" class="sort" data-sort="title">Name</th>
-                        <th scope="col" class="sort" data-sort="author">Email - ID</th>
-                        <th scope="col" class="sort" data-sort="isbn">Contact Number</th>
-                    </tr>
-                </thead>
-                <tbody class="list">
-                    {% for user  in users %}
-                    <tr>
-                        <td class="id">
-                            {{user.member_id}}
-                        </td>
-                        <td class="title">
-                            {{user.name}}
-                        </td>
-                        <td class="author">
-                            {{user.email}}
-                        </td>
-                        <td class="isbn">
-                            {{user.contact}}
-                        </td>
-                    </tr>
-
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
+<div class="row m-1 p-1">
+    <div class="col-xl-12">
+        <!-- Form filter -->
+        {% include 'members/includes/search_form.html'%}
+    </div>
+    <div class="col-xl-12">
+        <!-- Tables -->
+        {% include 'members/includes/get_members.html'%}
+        <!-- Pop up Modal -->
+        
     </div>
 </div>
-
-
-<div>
-
-{% include 'members/includes/search_form.html'%}
-
-</div>
-
 
 {% endblock content %}
