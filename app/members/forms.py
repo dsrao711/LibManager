@@ -19,6 +19,7 @@ class EditMember(FlaskForm):
     email = StringField('Email' , validators = [DataRequired()])
     contact = StringField('Contact' , validators = [DataRequired()])
     debt = IntegerField('Debt' , validators = [DataRequired()])
+    edit = SubmitField('Edit')
     
     
     

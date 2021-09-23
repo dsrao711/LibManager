@@ -1,0 +1,77 @@
+{% for user in users %}
+
+<!-- Modal  starts-->
+<div class="modal fade" id="examplemodal{{ user[0] }}" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Import Book</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Form -->
+                <form role="form" method="POST" action="/books_import">
+                    {{ edit_form.hidden_tag() }}
+                    <div class="row m-0">
+
+                        <div class="col-xl-6 form-group">
+                            {% if edit_form.name.errors %}    
+                                {{ edit_form.name(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in edit_form.name.errors %}
+                                    <span>{{ error }}</span> {% endfor %}
+                            </div>
+                            {% else %} 
+                                {{ edit_form.name(class="form-control" , placeholder = "Name" , type = "text" ) }} {% endif %}
+                        </div>
+
+                        <div class="col-xl-6 form-group">
+                            {% if edit_form.email.errors %}    
+                                {{ edit_form.email(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in edit_form.email.errors %}
+                                    <span>{{ error }}</span> {% endfor %}
+                            </div>
+                            {% else %} 
+                                {{ edit_form.email(class="form-control" , placeholder = "Email" , type = "text" ) }} {% endif %}
+                        </div>
+
+                        <div class="col-xl-6 form-group">
+                            {% if edit_form.contact.errors %}    
+                                {{ edit_form.contact(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in edit_form.contact.errors %}
+                                    <span>{{ error }}</span> {% endfor %}
+                            </div>
+                            {% else %} 
+                                {{ edit_form.contact(class="form-control" , placeholder = "Contact Number" , type = "text" ) }} {% endif %}
+                        </div>
+
+                        <div class="col-xl-6 form-group">
+                            {% if edit_form.debt.errors %}    
+                                {{ edit_form.debt(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in edit_form.debt.errors %}
+                                    <span>{{ error }}</span> {% endfor %}
+                            </div>
+                            {% else %} 
+                                {{ edit_form.debt(class="form-control" , placeholder = "Quantity" , type = "text" ) }} {% endif %}
+                        </div>
+
+                        <div class="col-xl-3 align-left">
+                            {{ edit_form.edit(class = "btn btn-secondary" , type = "submit") }}
+                        </div>
+                        
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Modal ends-->
+
+{% endfor %}

@@ -3,7 +3,7 @@ from wtforms import form
 from app import db
 from flask import Blueprint, redirect, render_template, url_for , flash
 from app.members.models import members
-from app.members.forms import AddMember, SearchMember
+from app.members.forms import AddMember, SearchMember , EditMember
 
 bp = Blueprint('members' , __name__)
 
@@ -24,10 +24,13 @@ def register():
 def get_members():
     users = members.query
     search_form = SearchMember()  
+    edit_form = EditMember()
+    
     if search_form.validate_on_submit():
         users = users.filter(members.name.like('%' + search_form.name.data + '%')) 
     users = users.order_by(members.name).all()
+
     
-    return render_template('members/members.html' , users = users , search_form = search_form)
+    return render_template('members/members.html' , users = users , search_form = search_form , edit_form = edit_form)
 
 
