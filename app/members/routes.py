@@ -18,7 +18,7 @@ def register():
         flash('Your account has been created! You are now able to log in', 'success')
         return redirect(url_for('members.register'))
     
-    return render_template('members/add_member.html', title='Add Member', form=form)
+    return render_template('members/add_member.html', title ='Add Member', form = form)
 
 @bp.route("/members" , methods = ['GET' , 'POST' , 'DELETE'])
 def get_members():
