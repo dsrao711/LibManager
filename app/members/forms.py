@@ -23,4 +23,5 @@ class EditMember(FlaskForm):
     edit = SubmitField('Edit')
     
 class DeleteMember(FlaskForm):
+    member_id = IntegerField(validators=[DataRequired()])
     delete = SubmitField('Delete')

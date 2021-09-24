@@ -14,19 +14,21 @@
                 <!-- Form -->
                 <form role="form" method="POST" action="/members">
                     {{ delete_form.hidden_tag() }}
+                    {{ delete_form.member_id(class="form-control" , placeholder = "Member ID" , type = "hidden" , value = user.member_id ) }} 
+
                     <div class="row m-0">
 
                         <div class="col-xl-12 form-group mb-4">
                             <h4>Are you sure you want to delete ?</h4>
                         </div>
 
-                        <div class="col-xl-3 align-left">
+                        <div class="col-xl-3 align-right">
                             {{ delete_form.delete(class = "btn btn-primary" , type = "submit") }}
                         </div>
                         
                     </div>
                 </form>
-
+                <!-- Form ends -->
             </div>
 
         </div>

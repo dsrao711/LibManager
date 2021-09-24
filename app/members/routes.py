@@ -42,6 +42,16 @@ def get_members():
         db.session.commit()
         return redirect(url_for('main.dashboard'))
     
+    if delete_form.validate_on_submit():
+        print("Validating Delete...")
+        print(delete_form.data)
+        data = delete_form.data
+        del data['csrf_token']
+        del data['delete']
+        del_member = members.query.filter_by(member_id = data['member_id']).delete()
+        db.session.commit()
+        return redirect(url_for('main.dashboard'))
+    
     
     return render_template('members/members.html' , users = users , search_form = search_form , edit_form = edit_form , delete_form = delete_form)
 

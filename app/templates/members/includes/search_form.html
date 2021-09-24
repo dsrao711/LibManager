@@ -17,7 +17,7 @@
                     <!-- <input class="form-control" placeholder="Title" type="text"> -->
                     {% if search_form.name.errors %} {{ search_form.name(class="form-control form-control-lg is-invalid") }}
                     <div class="invalid-feedback">
-                        {% for error in search_form.title.errors %}
+                        {% for error in search_form.name.errors %}
                         <span>{{ error }}</span> {% endfor %}
                     </div>
                     {% else %} {{ search_form.name(class="form-control" , placeholder = "Search By Name" , type = "text") }} {% endif %}
