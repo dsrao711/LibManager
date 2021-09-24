@@ -1,1 +1,17 @@
-<h1>Book Issue</h1>
+{% extends "./layout.html" %} {% block content %}
+
+<div class="row m-1 p-1">
+    <div class="col-xl-12">
+        <!-- Search Form filter -->
+        {% include 'transactions/includes/search_form.html' %}
+    </div>
+    <div class="col-xl-12">
+        <!-- Get Books Tables -->
+        {% include 'transactions/includes/get_books.html' %}
+        <!-- Issue Form Pop up Modal -->
+        {% include 'transactions/includes/issue_form.html'%}
+    </div>
+</div>
+
+
+{% endblock content %}
