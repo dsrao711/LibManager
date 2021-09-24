@@ -18,9 +18,11 @@ db.create_all()
 from app.books.routes import bp as books_blueprint
 from app.main.routes import bp as main_blueprint
 from app.members.routes  import bp as members_blueprint
+from app.transactions.routes  import bp as transactions_blueprint
 
 app.register_blueprint(books_blueprint)
 app.register_blueprint(main_blueprint)
 app.register_blueprint(members_blueprint)
+app.register_blueprint(transactions_blueprint)
 
 
