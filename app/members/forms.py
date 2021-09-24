@@ -15,11 +15,12 @@ class SearchMember(FlaskForm):
     search = SubmitField('Search')
     
 class EditMember(FlaskForm):
+    member_id = IntegerField('ID')
     name = StringField('Name' , validators = [DataRequired()])
     email = StringField('Email' , validators = [DataRequired()])
     contact = StringField('Contact' , validators = [DataRequired()])
     debt = IntegerField('Debt' , validators = [DataRequired()])
     edit = SubmitField('Edit')
     
-    
-    
+class DeleteMember(FlaskForm):
+    delete = SubmitField('Delete')

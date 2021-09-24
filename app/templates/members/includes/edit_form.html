@@ -17,6 +17,19 @@
                     <div class="row m-0">
 
                         <div class="col-xl-6 form-group">
+                            {% if edit_form.member_id.errors %}    
+                                {{ edit_form.member_id(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in edit_form.member_id.errors %}
+                                    <span>{{ error }}</span> {% endfor %}
+                            </div>
+                            {% else %} 
+                                {{ edit_form.member_id(class="form-control" , placeholder = "Name" , type = "text" , value = user.member_id  )  }} 
+                            {% endif %}
+                        </div>
+
+
+                        <div class="col-xl-6 form-group">
                             {% if edit_form.name.errors %}    
                                 {{ edit_form.name(class="form-control is-invalid") }}
                             <div class="invalid-feedback">
