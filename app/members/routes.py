@@ -28,10 +28,12 @@ def get_members():
     edit_form = EditMember()
     delete_form = DeleteMember()
     
+    # Search for Members
     if search_form.validate_on_submit():
         users = users.filter(members.name.like('%' + search_form.name.data + '%')) 
     users = users.order_by(members.name).all()   
     
+    # Edit Member
     if edit_form.validate_on_submit():
         print("Validated edit form")
         print(edit_form.data)
@@ -42,6 +44,7 @@ def get_members():
         db.session.commit()
         return redirect(url_for('main.dashboard'))
     
+    # Delete Member
     if delete_form.validate_on_submit():
         print("Validating Delete...")
         print(delete_form.data)

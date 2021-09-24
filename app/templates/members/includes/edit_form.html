@@ -5,7 +5,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Import Book</h5>
+                <h5 class="modal-title">Edit Member Details</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -74,8 +74,11 @@
                                 {{ edit_form.debt(class="form-control" , placeholder = "Quantity" , type = "text" , value = user.debt) }} {% endif %}
                         </div>
 
+                        <div class="col-xl-6 ">
+                        </div>
+
                         <div class="col-xl-3 align-left">
-                            {{ edit_form.edit(class = "btn btn-secondary" , type = "submit") }}
+                            {{ edit_form.edit(class = "btn btn-primary" , type = "submit") }}
                         </div>
                         
                     </div>
