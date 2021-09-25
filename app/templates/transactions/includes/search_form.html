@@ -4,6 +4,35 @@
         <h4>Apply Filter</h4>
     </div>
 
-    
+    <form role="form" method="POST">
+
+        {{ search_form.hidden_tag() }}
+        <div class="row">
+
+            <div class="col-xl-8 form-group">
+                <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-books"></i></span>
+                    </div>
+                 
+                    {% if search_form.name.errors %} 
+                        {{ search_form.name(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in search_form.name.errors %}
+                                <span>{{ error }}</span> 
+                            {% endfor %}
+                        </div>
+                    {% else %} 
+                        {{ search_form.name(class="form-control" , placeholder = "Book name" , type = "text") }} 
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="col-xl-3 align-left">
+                {{search_form.search(class = "btn btn-primary" , type = "submit" )}}
+            </div>
+
+        </div>
+    </form>
 
 </div>
