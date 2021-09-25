@@ -17,62 +17,18 @@
                     <div class="row m-0">
 
                         <div class="col-xl-6 form-group">
-                            {% if edit_form.member_id.errors %}    
-                                {{ edit_form.member_id(class="form-control is-invalid") }}
+                            {% if issue_form.member_id.errors %}    
+                                {{ issue_form.member_id(class="form-control is-invalid") }}
                             <div class="invalid-feedback">
-                                {% for error in edit_form.member_id.errors %}
+                                {% for error in issue_form.member_id.errors %}
                                     <span>{{ error }}</span> {% endfor %}
                             </div>
                             {% else %} 
-                                {{ edit_form.member_id(class="form-control" , placeholder = "Name" , type = "text" , value = user.member_id  )  }} 
+                                {{ issue_form.member_id(class="form-control" , placeholder = "Name" , type = "text" , value = user.member_id  )  }} 
                             {% endif %}
                         </div>
 
-                        <div class="col-xl-6 form-group">
-                            {% if edit_form.name.errors %}    
-                                {{ edit_form.name(class="form-control is-invalid") }}
-                            <div class="invalid-feedback">
-                                {% for error in edit_form.name.errors %}
-                                    <span>{{ error }}</span> {% endfor %}
-                            </div>
-                            {% else %} 
-                                {{ edit_form.name(class="form-control" , placeholder = "Name" , type = "text" , value = user.name )  }} 
-                            {% endif %}
-                        </div>
-
-                        <div class="col-xl-6 form-group">
-                            {% if edit_form.email.errors %}    
-                                {{ edit_form.email(class="form-control is-invalid") }}
-                            <div class="invalid-feedback">
-                                {% for error in edit_form.email.errors %}
-                                    <span>{{ error }}</span> {% endfor %}
-                            </div>
-                            {% else %} 
-                                {{ edit_form.email(class="form-control" , placeholder = "Email" , type = "text" , value = user.email ) }} {% endif %}
-                        </div>
-
-                        <div class="col-xl-6 form-group">
-                            {% if edit_form.contact.errors %}    
-                                {{ edit_form.contact(class="form-control is-invalid") }}
-                            <div class="invalid-feedback">
-                                {% for error in edit_form.contact.errors %}
-                                    <span>{{ error }}</span> {% endfor %}
-                            </div>
-                            {% else %} 
-                                {{ edit_form.contact(class="form-control" , placeholder = "Contact Number" , type = "text" , value = user.contact) }} {% endif %}
-                        </div>
-
-                        <div class="col-xl-6 form-group">
-                            {% if edit_form.debt.errors %}    
-                                {{ edit_form.debt(class="form-control is-invalid") }}
-                            <div class="invalid-feedback">
-                                {% for error in edit_form.debt.errors %}
-                                    <span>{{ error }}</span> {% endfor %}
-                            </div>
-                            {% else %} 
-                                {{ edit_form.debt(class="form-control" , placeholder = "Quantity" , type = "text" , value = user.debt) }} {% endif %}
-                        </div>
-
+                        
                         <div class="col-xl-6 ">
                         </div>
 

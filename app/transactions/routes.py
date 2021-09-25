@@ -10,10 +10,11 @@ def book_issue():
     search_form = SearchForm()
     issue_form = IssueForm()
     books = Books.query
+    
     if search_form.validate_on_submit():
         print("Validating Search ...")
         data = search_form.data
         books = books.filter(Books.title.like('%' + data['name'] + '%')) 
-   
-    return render_template('transactions/book_issue.html', title ='Issue Book', search_form = search_form , books = books)
+    
+    return render_template('transactions/book_issue.html', title ='Issue Book', search_form = search_form , books = books , issue_form = issue_form)
 
