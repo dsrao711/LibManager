@@ -1,5 +1,5 @@
 from app import db
-from app.transactions.forms import IssueForm, SearchForm
+from app.transactions.forms import  SearchForm , IssueForm
 from flask import Blueprint, flash, redirect, render_template, request, url_for
 from app.books.models import Books
 
@@ -15,6 +15,12 @@ def book_issue():
         print("Validating Search ...")
         data = search_form.data
         books = books.filter(Books.title.like('%' + data['name'] + '%')) 
+        
+    for book in books:
+        print(book.title)
+        
+    if issue_form.validate_on_submit():
+        print("Validating Issue Form")
     
     return render_template('transactions/book_issue.html', title ='Issue Book', search_form = search_form , books = books , issue_form = issue_form)
 
