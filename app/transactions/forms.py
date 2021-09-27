@@ -13,7 +13,7 @@ class SearchForm(FlaskForm):
 class IssueForm(FlaskForm):
     b_name = StringField('Book Name' , validators = [DataRequired()])
     m_name = StringField('Member Name' , validators = [DataRequired()])
-    # issue_date = DateField('Issue Date' , validators = [DataRequired()])
+    issue_date = DateField('Issue Date' , validators = [DataRequired()] , format='%Y-%m-%d')
     rent_period = IntegerField('Rent Period' , validators = [DataRequired()])
     fine = IntegerField('Fine' , validators = [DataRequired()])
     submit = SubmitField('Submit')

@@ -16,7 +16,7 @@
                     {{ issue_form.hidden_tag() }}
                     <div class="row m-0">
 
-                        <div class="col-xl-6 form-group">
+                        <div class="col-xl-12 form-group">
                             {% if issue_form.b_name.errors %}    
                                 {{ issue_form.b_name(class="form-control is-invalid") }}
                             <div class="invalid-feedback">
@@ -25,6 +25,55 @@
                             </div>
                             {% else %} 
                                 {{ issue_form.b_name(class="form-control" , placeholder = "Name" , type = "text" , value = book.title)  }} 
+                            {% endif %}
+                        </div>
+
+                         <div class="col-xl-12 form-group">
+                            {% if issue_form.m_name.errors %}    
+                                {{ issue_form.m_name(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in issue_form.m_name.errors %}
+                                    <span>{{ error }}</span> {% endfor %}
+                            </div>
+                            {% else %} 
+                                {{ issue_form.m_name(class="form-control" , placeholder = "Member Name" , type = "text" )  }} 
+                            {% endif %}
+                        </div>
+
+                        <div class="col-xl-12 form-group">
+                            {% if issue_form.issue_date.errors %}    
+                                {{ issue_form.issue_date(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in issue_form.issue_date.errors %}
+                                    <span>{{ error }}</span> {% endfor %}
+                            </div>
+                            {% else %} 
+                                {{ issue_form.issue_date(class="form-control datepicker" , placeholder = "Date" , type = "date" , value="06/20/2020" )  }} 
+                            {% endif %}
+                        </div>
+
+                        <div class="col-xl-6 form-group">
+                            {% if issue_form.rent_period.errors %}    
+                                {{ issue_form.rent_period(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in issue_form.rent_period.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %} 
+                                {{ issue_form.rent_period(class="form-control" , placeholder = "Rent Period" , type = "text" , value = 0 )  }} 
+                            {% endif %}
+                        </div>
+
+                        <div class="col-xl-6 form-group">
+                            {% if issue_form.fine.errors %}    
+                                {{ issue_form.fine(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in issue_form.fine.errors %}
+                                    <span>{{ error }}</span> {% endfor %}
+                            </div>
+                            {% else %}  
+                                {{ issue_form.fine(class="form-control" , placeholder = "Fine" , type = "text" , value = 0 )  }} 
                             {% endif %}
                         </div>
 
