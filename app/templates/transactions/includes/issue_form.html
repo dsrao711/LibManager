@@ -12,7 +12,7 @@
             </div>
             <div class="modal-body">
                 <!-- Form -->
-                <form role="form" method="POST" action="/members">
+                <form role="form" method="POST" action="/book_issue">
                     {{ issue_form.hidden_tag() }}
                     <div class="row m-0">
 
@@ -21,7 +21,8 @@
                                 {{ issue_form.b_name(class="form-control is-invalid") }}
                             <div class="invalid-feedback">
                                 {% for error in issue_form.b_name.errors %}
-                                    <span>{{ error }}</span> {% endfor %}
+                                    <span> {{ error }} </span> 
+                                {% endfor %}
                             </div>
                             {% else %} 
                                 {{ issue_form.b_name(class="form-control" , placeholder = "Name" , type = "text" , value = book.title)  }} 
