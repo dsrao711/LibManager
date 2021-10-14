@@ -4,6 +4,25 @@
 
 A library management portal for maintaining users and book data 
 
+### Features:
+
+- Books Module
+1. Import Books
+2. Add Books
+3. Delete Books
+4. Search Books 
+
+- Members Module
+1. Add Member 
+2. Delete Member
+3. Update Member Information
+4. Search Member Information
+
+- Transactions
+1. Issue Books
+
+
+
 ### Tech stack :
 
 - Flask
